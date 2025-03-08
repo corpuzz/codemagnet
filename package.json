@@ -1,0 +1,50 @@
+{
+    "name": "codemagnet",
+    "displayName": "CodeMagnet",
+    "description": "Find TODO/FIXME comments in your code",
+    "version": "0.0.1",
+    "engines": {
+      "vscode": "^1.84.0"
+    },
+    "activationEvents": [
+      "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+      "commands": [
+        {
+          "command": "codemagnet.showPanel",
+          "title": "Show CodeMagnet Panel"
+        },
+        {
+          "command": "codemagnet.refresh",
+          "title": "Refresh CodeMagnet List"
+        }
+      ],
+      "configuration": {
+        "type": "object",
+        "title": "CodeMagnet Configuration",
+        "properties": {
+          "codemagnet.exclude": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": ["**/node_modules/**", "**/.git/**"],
+            "description": "Glob patterns to exclude from search"
+          }
+        }
+      }
+    },
+    "scripts": {
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./",
+      "package": "vsce package"
+    },
+    "devDependencies": {
+      "@types/node": "^20.8.10",
+      "@types/vscode": "^1.84.0",
+      "typescript": "^5.2.2",
+      "vsce": "^2.16.0"
+    }
+  }

@@ -1,0 +1,80 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 16px;
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--vscode-editorGroup-border);
+    padding-bottom: 10px;
+  }
+  
+  .logo {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--vscode-titleBar-activeForeground);
+  }
+  
+  .refresh-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--vscode-icon-foreground);
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .list-container {
+    display: grid;
+    gap: 10px;
+  }
+  
+  .todo-item {
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-left: 4px solid transparent;
+  }
+  
+  .todo-item:hover {
+    background: var(--vscode-list-hoverBackground);
+  }
+  
+  .todo-item.todo {
+    border-color: #4CAF50;
+  }
+  
+  .todo-item.fixme {
+    border-color: #FF5722;
+  }
+  
+  .item-header {
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--vscode-descriptionForeground);
+  }
+  
+  .item-content {
+    margin-top: 4px;
+    word-break: break-word;
+  }
+  
+  .empty {
+    text-align: center;
+    color: var(--vscode-disabledForeground);
+    padding: 20px;
+  }
