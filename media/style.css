@@ -21,20 +21,23 @@ body {
     margin-right: 10px;
   }
   
-  h1 {
-    margin: 0;
-    font-size: 1.5em;
-    color: var(--vscode-titleBar-activeForeground);
+  .actions {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
   }
   
-  .refresh-btn {
-    margin-left: auto;
-    background: none;
+  .tree-btn {
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
     border: none;
-    color: var(--vscode-icon-foreground);
-    font-size: 1.2em;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    padding: 5px;
+  }
+  
+  .tree-btn:hover {
+    background: var(--vscode-button-hoverBackground);
   }
   
   .list-container {
@@ -43,6 +46,8 @@ body {
   }
   
   .todo-item {
+    display: flex;
+    align-items: flex-start;
     padding: 12px;
     border-radius: 4px;
     cursor: pointer;
@@ -62,15 +67,31 @@ body {
     border-color: #FF5722;
   }
   
+  .item-checkbox {
+    margin: 4px 10px 0 0;
+  }
+  
+  .item-content {
+    flex: 1;
+  }
+  
   .item-header {
     font-weight: 500;
     margin-bottom: 4px;
     color: var(--vscode-descriptionForeground);
   }
   
-  .item-content {
+  .item-description {
     margin-top: 4px;
     word-break: break-word;
+  }
+  
+  .dropdown-btn {
+    background: none;
+    border: none;
+    color: var(--vscode-icon-foreground);
+    margin-left: 10px;
+    cursor: pointer;
   }
   
   .empty {

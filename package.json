@@ -11,6 +11,14 @@
     ],
     "main": "./out/extension.js",
     "contributes": {
+        "views": {
+      "explorer": [
+        {
+          "id": "codemagnetTree",
+          "name": "CodeMagnet Tree"
+        }
+      ]
+    },
       "commands": [
         {
           "command": "codemagnet.showPanel",
