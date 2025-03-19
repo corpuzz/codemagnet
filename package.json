@@ -3,11 +3,13 @@
   "displayName": "CodeMagnet",
   "description": "Track and manage TODO and FIXME comments in your codebase",
   "version": "0.0.1",
+  "publisher": "mjcorpuz",
+  "icon": "media/codemagnet.jpeg",
   "repository": {
     "type": "git",
     "url": "https://github.com/corpuzz/codemagnet.git"
   },
-  "author": "Corpuzz",
+  "author": "mjcorpuz",
   "license": "MIT",
   "engines": {
     "vscode": "^1.80.0"
