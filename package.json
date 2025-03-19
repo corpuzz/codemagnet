@@ -1,0 +1,66 @@
+{
+  "name": "codemagnet",
+  "displayName": "CodeMagnet",
+  "description": "Track and manage TODO and FIXME comments in your codebase",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codemagnet-sidebar",
+          "title": "CodeMagnet",
+          "icon": "media/todo-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "codemagnet-sidebar": [
+        {
+          "type": "webview",
+          "id": "codemagnet.todoList",
+          "name": "Todo List",
+          "visibility": "visible"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codemagnet.refresh",
+        "title": "CodeMagnet: Refresh Todo List"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/node": "^18.15.11",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "@vscode/test-electron": "^2.3.2",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "@vscode/codicons": "^0.0.36",
+    "vscode-icons-js": "^11.6.1"
+  }
+}

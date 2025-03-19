@@ -1,0 +1,129 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--vscode-font-family);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.filter-button {
+    padding: 4px 8px;
+    border: 1px solid var(--vscode-button-border);
+    background: var(--vscode-button-secondaryBackground);
+    color: var(--vscode-button-secondaryForeground);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.filter-button:hover {
+    background: var(--vscode-button-secondaryHoverBackground);
+}
+
+.filter-button.active {
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border-color: var(--vscode-button-background);
+}
+
+.todo-item {
+    padding: 8px;
+    border-bottom: 1px solid var(--vscode-panel-border);
+    cursor: pointer;
+}
+
+.todo-item:hover {
+    background-color: var(--vscode-list-hoverBackground);
+}
+
+.todo-item.done {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.file-path {
+    color: var(--vscode-descriptionForeground);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.file-icon {
+    margin-right: 4px;
+    font-size: 16px;
+    vertical-align: text-bottom;
+}
+
+.todo-text {
+    color: var(--vscode-foreground);
+    font-family: var(--vscode-editor-font-family);
+    font-size: var(--vscode-editor-font-size);
+}
+
+.todo-menu {
+    position: relative;
+    padding: 4px;
+    border-radius: 3px;
+}
+
+.todo-menu:hover {
+    background-color: var(--vscode-toolbar-hoverBackground);
+}
+
+.context-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--vscode-menu-background);
+    border: 1px solid var(--vscode-menu-border);
+    box-shadow: 0 2px 8px var(--vscode-widget-shadow);
+    z-index: 1000;
+    min-width: 100px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.context-menu.active {
+    display: inline-flex;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+.context-menu-item {
+    padding: 4px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+
+}
+
+.context-menu-item:hover {
+    background-color: var(--vscode-menu-selectionBackground);
+    color: var(--vscode-menu-selectionForeground);
+    border-radius: 5px;
+
+}
+
+.done-label {
+    background-color: green;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    font-size: 0.8em;
+}
