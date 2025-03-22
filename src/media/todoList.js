@@ -11,16 +11,8 @@ if (previousState) {
 }
 
 function getFileIcon(file) {
-    const ext = file.split('.').pop().toLowerCase();
-    if (['js', 'jsx', 'ts', 'tsx'].includes(ext)) {
-         return 'file-code';
-    } else if (['css', 'scss', 'less'].includes(ext)) {
-         return 'symbol-color';
-    } else if (['json'].includes(ext)) {
-         return 'file-code';
-    } else {
-         return 'file';
-    }
+    // Use a generic file icon for all files
+    return 'file-code';
 }
 
 // Create filter buttons

@@ -31,47 +31,8 @@ export class TodoTreeProvider implements vscode.WebviewViewProvider {
     }
 
     private getFileIcon(filePath: string): string {
-        const ext = path.extname(filePath).toLowerCase();
-        switch (ext) {
-            case '.ts':
-                return 'typescript';
-            case '.js':
-                return 'javascript';
-            case '.py':
-                return 'python';
-            case '.java':
-                return 'java';
-            case '.cpp':
-            case '.c':
-            case '.h':
-            case '.hpp':
-                return 'cpp';
-            case '.cs':
-                return 'csharp';
-            case '.go':
-                return 'go';
-            case '.rb':
-                return 'ruby';
-            case '.php':
-                return 'php';
-            case '.json':
-                return 'json';
-            case '.md':
-                return 'markdown';
-            case '.html':
-                return 'html';
-            case '.css':
-            case '.scss':
-            case '.less':
-                return 'css';
-            case '.xml':
-                return 'xml';
-            case '.yaml':
-            case '.yml':
-                return 'yaml';
-            default:
-                return 'file';
-        }
+        // Return a consistent icon for all file types
+        return 'file';
     }
 
     public async refresh() {
@@ -148,7 +109,7 @@ export class TodoTreeProvider implements vscode.WebviewViewProvider {
                             let functionRange: vscode.Range | undefined;
 
                             if (symbols) {
-                                functionRange = this.findContainingFunction(symbols, position);
+                                functionRange = await this.findContainingFunction(symbols, position);
                             }
 
                             // If we found a containing function, highlight it
@@ -214,31 +175,20 @@ export class TodoTreeProvider implements vscode.WebviewViewProvider {
         }
     }
 
-    private findContainingFunction(symbols: vscode.DocumentSymbol[], position: vscode.Position): vscode.Range | undefined {
+    private async findContainingFunction(symbols: vscode.DocumentSymbol[], position: vscode.Position): Promise<vscode.Range | undefined> {
+        // Look for any symbol that contains the position, not just functions
         for (const symbol of symbols) {
-            // Check if this symbol contains the position
             if (symbol.range.contains(position)) {
-                // If it's a function/method/constructor
-                if (symbol.kind === vscode.SymbolKind.Function ||
-                    symbol.kind === vscode.SymbolKind.Method ||
-                    symbol.kind === vscode.SymbolKind.Constructor) {
-                    return symbol.range;
-                }
-
-                // Recursively check children
-                if (symbol.children.length > 0) {
-                    const childResult = this.findContainingFunction(symbol.children, position);
-                    if (childResult) {
-                        return childResult;
+                // First check if this symbol directly contains the position
+                return symbol.range;
+            }
+            
+            // Then check children recursively
+            if (symbol.children) {
+                for (const child of symbol.children) {
+                    if (child.range.contains(position)) {
+                        return child.range;
                     }
-                }
-
-                // If no function found in children but this is a class/module/namespace
-                // return its range as fallback
-                if (symbol.kind === vscode.SymbolKind.Class ||
-                    symbol.kind === vscode.SymbolKind.Module ||
-                    symbol.kind === vscode.SymbolKind.Namespace) {
-                    return symbol.range;
                 }
             }
         }

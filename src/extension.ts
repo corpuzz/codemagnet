@@ -9,8 +9,8 @@ export function activate(context: vscode.ExtensionContext) {
         provider // Add provider to subscriptions for proper disposal
     );
 
-    // Watch for file changes
-    const fileWatcher = vscode.workspace.createFileSystemWatcher('**/*.{ts,js,py,java,cpp,c,h,hpp,cs,go,rb,php}');
+    // Watch for file changes - watch all files
+    const fileWatcher = vscode.workspace.createFileSystemWatcher('**/*.*');
     
     // Refresh on file changes
     fileWatcher.onDidChange(() => provider.refresh());
